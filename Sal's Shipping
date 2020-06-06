@@ -1,0 +1,47 @@
+def cost_of_gs(weight):
+  if weight <= 2:
+    price = 1.50 
+  elif weight <= 6:
+    price = 3.00
+  elif weight <= 10:
+    price = 4.00
+  else:
+    price = 4.50
+  
+  return 20 + (price * weight)
+  
+cost_of_ps = 125.00
+
+def cost_of_ds(weight):
+  if weight <= 2:
+    price = 4.50 
+  elif weight <= 6:
+    price = 9.00
+  elif weight <= 10:
+    price = 12.00
+  else:
+    price = 14.25
+  
+  return price * weight
+
+print(cost_of_ds(1.5))
+
+def cheapest_shipping(weight):
+
+  ground = cost_of_gs(weight)
+  premium = cost_of_ps
+  drone = cost_of_ds(weight)
+
+  if ground < drone and ground < premium:
+    print("The cheapest shipping price is " + str(ground) + " by ground shipping.")
+  elif drone < ground and drone < premium:
+    print("The cheapest shipping price is " + str(drone) + " by drone shipping.")
+  else:
+    print("The cheapest shipping price is " + str(premium) + " by premium shipping.")
+  
+
+
+print(cheapest_shipping(4.8))
+print(cheapest_shipping(41.5))
+print(cheapest_shipping(16.5))
+
